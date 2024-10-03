@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useAllGroupSessions } from "../hooks/useAllGroupSessions";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
@@ -37,11 +36,11 @@ const ListView = () => {
                  <TableCell align="center">{session.clubName}</TableCell>
                  <TableCell component="th" scope="row">
                  <div> {session.bookingInfo.bookedCount} / {session.bookingInfo.capacity} plasser </div>
-                {session.bookingInfo.bookedCount == session.bookingInfo.capacity ? ( 
+                {session.bookingInfo.bookedCount === session.bookingInfo.capacity ? ( 
                     <div> {session.bookingInfo.waitingListCount + " på venteliste"} </div>
                 ) : (<div></div>)}
                 </TableCell>
-                 <TableCell> {session.bookingInfo.memberBookingInfo.bookingState == "NotBooked" ?
+                 <TableCell> {session.bookingInfo.memberBookingInfo.bookingState === "NotBooked" ?
                  <div style={{ color: 'red' }}> {session.bookingInfo.memberBookingInfo.bookingState} </div> : ( 
                     <div style={{ color: 'green' }}> {session.bookingInfo.memberBookingInfo.bookingState}</div>
                  ) }</TableCell>
